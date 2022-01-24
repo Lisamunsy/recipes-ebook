@@ -6,9 +6,10 @@ import {
   Flex,
   Text,
   Button,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 // Note: This code could be better,
 // so I'd recommend you to understand how I solved and you could write yours better :)
@@ -19,6 +20,33 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
+
+  // const{navchange, registered} =props;
+  // const onNav =()=>( props.onNav);
+
+  const registered = props.registered;
+  const logged = props.logged;
+  let navButton;
+  let linkNav;
+
+  if (logged=== 'false') {
+    if (registered === 'false') {
+      navButton = 'Log In';
+      linkNav = "/";
+    } else  {
+      navButton ='Sign In';
+      linkNav = "/signin";
+    }
+  } else{
+    navButton ='Log Out';
+    linkNav = "/"
+  }
+
+  
+
+ 
+  
+
 
   return (
     <Flex
@@ -58,15 +86,18 @@ const Header = (props) => {
         display={{ base: isOpen ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        <Button
-          variant="outline"
-          _hover={{ bg: "gray.600", borderColor: "gray.600" }}
-        >
-         Sign in
-        </Button>
+        <Link  to={linkNav}>
+          <Button
+            variant="outline"
+            _hover={{ bg: "gray.600", borderColor: "gray.600" }}
+          >
+          {navButton}
+          </Button>
+        </Link>
       </Box>
     </Flex>
   );
 };
 
 export default Header;
+
