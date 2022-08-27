@@ -19,6 +19,7 @@ class Home extends Component {
             this.setState({isRegistered: 'false'})
         }
     }
+
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
         if (this.props.reg !== prevProps.reg) {
