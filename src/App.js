@@ -4,8 +4,9 @@ import PersonalPage from "./Components/PersonalPage";
 import './App.css';
 
 function App() {
-  sessionStorage.setItem('logged', 'false')
+  // sessionStorage.setItem('logged', 'false')
   return (
+    
     <Router>
             <Routes>
             

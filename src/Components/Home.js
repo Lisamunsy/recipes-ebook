@@ -8,7 +8,7 @@ import Register from './Register';
 
 class Home extends Component {
     state ={
-        isLogged: JSON.parse(sessionStorage.getItem('logged')),
+        isLogged: 'false',
         isRegistered :this.props.reg,
     };
 
@@ -25,7 +25,9 @@ class Home extends Component {
         if (this.props.reg !== prevProps.reg) {
           this.setState({isRegistered: this.props.reg });
         }
-
+        if (this.props.logged !== prevProps.logged) {
+          this.setState({isLogged: this.props.logged });
+        }
       }
     
 

@@ -1,7 +1,8 @@
 import { Flex, FormControl, Heading, FormLabel, Input, FormErrorMessage, Button } from '@chakra-ui/react';
+import axios from 'axios';
 import React, { Component } from 'react';
 // import ImageFond from '../assets/img/bg02.jpg';
-import { Navigate } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
 
 class Login extends Component {
     state ={
@@ -9,29 +10,37 @@ class Login extends Component {
             email:'',
             password:''
         },
-        users : JSON.parse(localStorage.getItem('users-list')),
+        token: '',
+        // users : JSON.parse(localStorage.getItem('users-list')),
         isLogged: this.props.logged
     };
     
     
+    
     submit = (e) =>{
         e.preventDefault();
-        this.setState({users: JSON.parse(localStorage.getItem('users-list'))});
-        const liste = this.state.users;
-        const index = liste.findIndex(({email}) => email === this.state.loginUser.email) ;
-        if (typeof index !== 'undefined' | index!== null) {
-            const checkedUser = liste[index];
-            if (this.state.loginUser.password === checkedUser.password) {
-                sessionStorage.setItem('logged', 'true');
-                sessionStorage.setItem('userId', checkedUser.id);
-                this.setState({isLogged :'true'})
-            }
-            else{
-                alert("Something is wrong in your password. Try again!")
-            }
-        } else{
-            alert('Your email adress is wrong, try another one.')
-        }
+        // this.setState({users: JSON.parse(localStorage.getItem('users-list'))});
+        // const liste = this.state.users;
+        // const index = liste.findIndex(({email}) => email === this.state.loginUser.email) ;
+        // if (typeof index !== 'undefined' | index!== null) {
+        //     const checkedUser = liste[index];
+        //     if (this.state.loginUser.password === checkedUser.password) {
+        //         sessionStorage.setItem('logged', 'true');
+        //         sessionStorage.setItem('userId', checkedUser.id);
+        //         this.setState({isLogged :'true'})
+        //     }
+        //     else{
+        //         alert("Something is wrong in your password. Try again!")
+        //     }
+        // } else{
+        //     alert('Your email adress is wrong, try another one.')
+        // }
+        axios.post('http://127.0.0.1:8000/users/login', this.state.loginUser)
+            .then(res =>{
+                 const apitoken = res.data;
+                this.setState({token: apitoken})
+                this.setState({isLogged: 'true'})
+            })
     };
     changemail = (e) =>{
         const valeur = e.currentTarget.value;
@@ -49,9 +58,9 @@ class Login extends Component {
     }
    
     render() {
-        const logged = this.state.isLogged;
+        
         const registered = this.props.registered;
-        if ( registered ==='true' & logged === 'false') {
+        if ( registered ==='true' & this.state.isLogged === 'false') {
             
             return (
                 <form className="Login" onSubmit={this.submit}>
@@ -78,7 +87,7 @@ class Login extends Component {
                     </Flex>
                 </form>
             );
-        } else if (logged === 'true'){
+        } else if (this.state.isLogged === 'true'){
             return ( <Navigate to="/personalpage" />)
         } else{
             return(null)

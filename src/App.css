@@ -4,7 +4,7 @@
   width: 100vw;
 }
 
-.Home{
+.Home, .PersonalPage{
   height: 100vh;
   background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url('assets/img/bg02.jpg') no-repeat center/cover;
 }
