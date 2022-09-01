@@ -13,6 +13,7 @@ function App() {
             <Route path="/" element={<Home reg='true'/>} />
             <Route path="/signin" element={<Home reg='false'/>} />
             <Route path="/personalpage" element={<PersonalPage reg='true'/>} />
+            {/* <Route path="/newrecipe" element={<CreateRecette reg='true'/>} /> */}
             
             </Routes>
     </Router>

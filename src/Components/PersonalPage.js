@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import { Wrap, WrapItem, Center, Flex, Image, Heading} from '@chakra-ui/react';
+import ListeRecette from './Recettes/ListeRecette.js';
+import { Center,  Heading} from '@chakra-ui/react';
 
 class PersonalPage extends Component{
 
     constructor(props) {
         super(props);
         this.state = {
-          error: null,
-          isLoaded: false,
-          items: [],
+          // error: null,
+          // isLoaded: false,
+          // items: [],
           isLogged: true,
           isRegistered: this.props.reg,
           
@@ -53,12 +54,12 @@ class PersonalPage extends Component{
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
-        if (error) {
-          return <div>Erreur : {error.message}</div>;
-        } else if (!isLoaded) {
-          return <div>Chargement…</div>;
-        } else {
+        // const { error, isLoaded, items } = this.state;
+        // if (error) {
+        //   return <div>Erreur : {error.message}</div>;
+        // } else if (!isLoaded) {
+        //   return <div>Chargement…</div>;
+        // } else {
           return (
             <div className="PersonalPage">
                  <Header registered={this.state.isRegistered} logged={this.state.isLogged.toString()}/>
@@ -69,7 +70,7 @@ class PersonalPage extends Component{
                     </Heading> 
                     <Center w='100'>
 
-                        <Wrap p='5' justify='space-evenly' >
+                        {/* <Wrap p='5' justify='space-evenly' >
 
                             {items.map(item => (
                                 <WrapItem key={item.titre} w='250px'  py='2' borderColor='gray.300' border='1px'>
@@ -80,14 +81,15 @@ class PersonalPage extends Component{
                                     
                                 </WrapItem>
                             ))}
-                        </Wrap>
+                        </Wrap> */}
+                        <ListeRecette />
                     </Center>
                     
                  </div>
             </div>
             
           );
-        }
+        // }
       }
     }
 
