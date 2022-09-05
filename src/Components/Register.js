@@ -11,35 +11,11 @@ import React, { Component } from 'react';
 class Register extends Component {
     state ={
         newUser: {
-            id:'',
             name:'',
             email:'',
             password:''
         },
-        users : []
     };
-    // submit = (e) =>{
-        // e.preventDefault();
-        // this.state.users.push(this.state.newUser);
-        // const nextid = this.state.newUser.id +1;
-        // this.setState({ newUser: {
-            // id: nextid,
-        //     name:"",
-        //     email:"",
-        //     password:""
-        // } });
-        // localStorage.setItem('users-list', JSON.stringify(this.state.users));
-        // alert([this.state.users, localStorage.getItem('users-list')])
-    // };
-
-    // submit =(e) => {
-    //     e.preventDefault();
-    //     const data = new FormData(e.target);
-    //     fetch('http://127.0.0.1:8000/users/register', {
-    //         method:'Post',
-    //         body: JSON.stringify(data),
-    //     });
-    // }
 
     submit= (e) => {
         e.preventDefault();

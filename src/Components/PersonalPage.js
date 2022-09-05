@@ -69,19 +69,6 @@ class PersonalPage extends Component{
                         Vos Recettes
                     </Heading> 
                     <Center w='100'>
-
-                        {/* <Wrap p='5' justify='space-evenly' >
-
-                            {items.map(item => (
-                                <WrapItem key={item.titre} w='250px'  py='2' borderColor='gray.300' border='1px'>
-                                    <Flex flexDirection='column'  p='3'>
-                                        <Image src='https://picsum.photos/200' />
-                                        <p><b>Titre</b>{item.titre}</p>  <p><b>Catégorie</b>{item.categorie}</p>
-                                    </Flex>
-                                    
-                                </WrapItem>
-                            ))}
-                        </Wrap> */}
                         <ListeRecette />
                     </Center>
                     

@@ -77,8 +77,8 @@ const Header = (props) => {
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
       >
-        <Text>Home</Text>
-        <Text>Add a recipe</Text>
+        <Link to='/personalpage'>Home</Link>
+        <Link to='/newrecipe'>Add a recipe</Link>
         <Text>Blog</Text>
       </Stack>
 

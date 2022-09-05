@@ -41,9 +41,10 @@ class ListeRecette extends Component{
                 <Wrap p='5' justify='space-evenly' >
 
                     {items.map(item => (
-                        <WrapItem key={item.titre} w='250px'  py='2' borderColor='gray.300' border='1px'>
+                        <WrapItem key={item.id} w='250px'  py='2' borderColor='gray.300' border='1px'>
                             <Flex flexDirection='column'  p='3'>
-                                <Image src={item.imgUrl} />
+                          
+                                <Image src={ item.imgUrl} h='150px' w='200px' />
                                 <p><b>Titre</b>{item.titre}</p>  <p><b>Catégorie</b>{item.categorie}</p>
                             </Flex>
                             
