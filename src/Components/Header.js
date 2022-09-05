@@ -79,7 +79,6 @@ const Header = (props) => {
       >
         <Link to='/personalpage'>Home</Link>
         <Link to='/newrecipe'>Add a recipe</Link>
-        <Text>Blog</Text>
       </Stack>
 
       <Box
