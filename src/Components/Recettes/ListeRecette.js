@@ -45,7 +45,7 @@ class ListeRecette extends Component{
                             <Flex flexDirection='column'  p='3'>
                           
                                 <Image src={ item.imgUrl} h='150px' w='200px' />
-                                <p><b>Titre</b>{item.titre}</p>  <p><b>Catégorie</b>{item.categorie}</p>
+                                <p><b>Titre</b>{item.titre}</p>  <p><b>Catégorie</b>{item.categorie_id}</p>
                             </Flex>
                             
                         </WrapItem>

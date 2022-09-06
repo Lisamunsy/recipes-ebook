@@ -15,7 +15,7 @@ class CreateRecette extends Component {
                 categorie: 0
             },
             categories: [],
-            isLogged: true,
+            isLogged: this.props.logoui,
             isRegistered: this.props.reg,
             reussite : false
         };
@@ -82,7 +82,7 @@ class CreateRecette extends Component {
             return(
                 
                 <div className='CreateRecette'>
-                    <Header registered={this.state.isRegistered} logged={this.state.isLogged.toString()}/>
+                    <Header registered={this.state.isRegistered} logged={this.state.isLogged}/>
     
                     <Flex className='CreateRecette-container' h="auto" direction="column" w="50vw">
                         <form className='CreateForm' onSubmit={this.handleSubmit}>

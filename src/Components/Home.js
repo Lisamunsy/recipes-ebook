@@ -8,7 +8,7 @@ import Register from './Register';
 
 class Home extends Component {
     state ={
-        isLogged: 'false',
+        isLogged: this.props.logoui,
         isRegistered :this.props.reg,
     };
 
