@@ -3,7 +3,7 @@ import Home from "./Components/Home";
 import PersonalPage from "./Components/PersonalPage";
 import CreateRecette from "./Components/Recettes/CreateRecette";
 import './App.css';
-import ShowRecetteFun from "./Components/Recettes/ShowRecetteFun";
+// import ShowRecetteFun from "./Components/Recettes/ShowRecetteFun";
 
 function App() {
   // sessionStorage.setItem('logged', 'false')

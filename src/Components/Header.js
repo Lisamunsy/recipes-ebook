@@ -4,7 +4,6 @@ import {
   Stack,
   Heading,
   Flex,
-  Text,
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
