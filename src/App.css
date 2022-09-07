@@ -25,8 +25,43 @@
   border-radius: 25px;
   padding: 0.75rem;
   background: linear-gradient(225deg, #e6e6e6, #ffffff);
-  box-shadow:  -5px 5px 15px #d9d9d9,
-               5px -5px 15px #ffffff;
+  /* box-shadow:  -5px 5px 15px #d9d9d9,
+               5px -5px 15px #ffffff; */
+}
+.cardhover {
+  --color-gradient-start: #ffffff;
+  --color-gradient-stop: #ffffff;
+  --color-outset-start: #cecccc;
+  --color-outset-stop: #cecccc;
+  --color-inset-start: rgba(0, 0, 0, 0);
+  --color-inset-stop: rgba(0, 0, 0, 0);
+  font-size: 2rem;
+  color: #002c59;
+  margin: auto;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 0.5em 1em;
+  border-radius: 1.3em;
+  /* background: linear-gradient(145deg, var(--color-gradient-start), var(--color-gradient-stop)); */
+  box-shadow: 0.4em 0.4em 0.8em var(--color-outset-start), -0.4em -0.4em 0.8em var(--color-outset-stop), inset 0.2em 0.2em 0.4em var(--color-inset-start), inset -0.2em -0.2em 0.4em var(--color-inset-stop);
+  transition: --color-gradient-stop 0.4s, --color-gradient-start 0.4s, --color-outset-start 0.8s, --color-outset-stop 0.8s, --color-inset-start 0.8s, --color-inset-stop 0.8s, color 1s;
+}
+.cardhover:hover {
+  --color-gradient-start: #cecccc;
+  --color-gradient-stop: #cecccc;
+  --color-outset-start: rgba(0, 0, 0, 0);
+  --color-outset-stop: rgba(0, 0, 0, 0);
+  --color-inset-start: #cecccc;
+  --color-inset-stop: #cecccc;
+  color: #001f3f;
 }
 
 @media screen and (max-width: 800px) {
