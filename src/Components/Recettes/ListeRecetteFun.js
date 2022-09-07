@@ -4,7 +4,7 @@ import {
     // Route, Routes,
     Link} from "react-router-dom";
 // import ShowRecette from "./ShowRecette";
-import { Wrap, WrapItem, Flex, Image, } from "@chakra-ui/react";
+import { Wrap, WrapItem, Flex, Image, Heading, Button } from "@chakra-ui/react";
 
 function ListeRecetteFun(props) {
     const[recettes, setRecettes] =useState([]);
@@ -26,16 +26,22 @@ function ListeRecetteFun(props) {
 
         return(
             <div className="liste-container">
+                <Heading as='h1' size='2xl' color='orange.800' align='center' w="100%">
+                  {/* {this.state.isLogged.toString()} */}
+                  Welcome
+                </Heading> 
 
             <Wrap p='5' justify='space-evenly' >
 
                 {recettes.map(item => (
-                    <WrapItem key={item.id} w='250px'  py='2' borderColor='gray.300' border='1px'>
-                        <Flex flexDirection='column'  p='3'>
+                    <WrapItem key={item.id} w='250px' mx="25" py='2'  class="card-recette">
+                        <Flex flexDirection='column'  p='3' >
                     
                             <Image src={ item.imgUrl} h='150px' w='200px' />
-                            <p><b>Titre</b>{item.titre}</p>  <p><b>Catégorie</b>{item.categorie_id}</p>
-                            <Link to={`/recipe/${item.id}` }>More Details</Link>
+                            <Heading as='h3' size="md" color="gray.700">{item.titre}</Heading> 
+                             {/* <p><b>Catégorie</b>{item.categorie_id}</p> */}
+                            
+                            <Link to={`/recipe/${item.id}` }><Button colorScheme="orange">More Details</Button></Link>
                         </Flex>
                         
                     </WrapItem>

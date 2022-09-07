@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 // import ListeRecette from './Recettes/ListeRecette.js';
-import { Center,  Heading} from '@chakra-ui/react';
+import { Center} from '@chakra-ui/react';
 import ListeRecetteFun from './Recettes/ListeRecetteFun';
 import ShowRecetteFun from './Recettes/ShowRecetteFun';
 
@@ -73,10 +73,7 @@ class PersonalPage extends Component{
             <div className="PersonalPage">
                  <Header registered={this.state.isRegistered} logged={this.state.isLogged.toString()}/>
                  <div className="perso">
-                    <Heading as='h1' size='2xl' color='orange.800' align='center'>
-                        {/* {this.state.isLogged.toString()} */}
-                        Vos Recettes
-                    </Heading> 
+                    
                     <Center w='100'>
                         {page}
                         

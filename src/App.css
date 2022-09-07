@@ -2,6 +2,7 @@
   color: black;
   height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
 }
 
 .Home, .PersonalPage, .CreateRecette{
@@ -14,4 +15,25 @@
   margin: 1rem;
   padding: 1rem;
   border-radius: 5px;
+}
+
+.liste-container{
+  width: 100%;
+}
+.card-recette{
+  border-radius: 25px;
+  padding: 1rem;
+  margin: 1rem;
+  background: linear-gradient(225deg, #e6e6e6, #ffffff);
+  box-shadow:  -5px 5px 15px #d9d9d9,
+               5px -5px 15px #ffffff;
+}
+
+@media screen and (max-width: 800px) {
+  .Home, .PersonalPage, .CreateRecette {
+    min-height: 100vh;
+    height: auto;
+    padding-bottom: 1rem;
+  }
+ 
 }

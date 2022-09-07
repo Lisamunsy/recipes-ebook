@@ -14,9 +14,16 @@ class CreateRecette extends Component {
                 imgUrl: '',
                 categorie: 0
             },
+            oldRecipe: {
+                titre: '',
+                description: '',
+                imgUrl: '',
+                categorie: 0
+            },
             categories: [],
             isLogged: this.props.logoui,
             isRegistered: this.props.reg,
+            isUpdate: this.props.update,
             reussite : false
         };
     
@@ -41,6 +48,9 @@ class CreateRecette extends Component {
                     });
                 })
             )
+        // if (this.state.isUpdate === 'true') {
+            
+        // }
       }
     
       handleInputChange(event) {
