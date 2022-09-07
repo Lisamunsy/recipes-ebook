@@ -34,11 +34,11 @@ function ListeRecetteFun(props) {
             <Wrap p='5' justify='space-evenly' >
 
                 {recettes.map(item => (
-                    <WrapItem key={item.id} w='250px' mx="25" py='2'  class="card-recette">
+                    <WrapItem key={item.id} w='250px' m={4} py='2'  className="card-recette">
                         <Flex flexDirection='column'  p='3' >
                     
                             <Image src={ item.imgUrl} h='150px' w='200px' />
-                            <Heading as='h3' size="md" color="gray.700">{item.titre}</Heading> 
+                            <Heading as='h3' size="md" color="gray.700" textTransform="capitalize">{item.titre}</Heading> 
                              {/* <p><b>Catégorie</b>{item.categorie_id}</p> */}
                             
                             <Link to={`/recipe/${item.id}` }><Button colorScheme="orange">More Details</Button></Link>
