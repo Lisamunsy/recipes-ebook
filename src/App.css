@@ -13,7 +13,7 @@
 
 .perso, .CreateRecette-container{
   background: white;
-  margin: 1rem;
+  margin: 1rem auto;
   padding: 1rem;
   border-radius: 5px;
 }
@@ -23,7 +23,7 @@
 }
 .card-recette{
   border-radius: 25px;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   background: linear-gradient(225deg, #e6e6e6, #ffffff);
   /* box-shadow:  -5px 5px 15px #d9d9d9,
                5px -5px 15px #ffffff; */
@@ -48,8 +48,8 @@
   cursor: pointer;
   border: 0;
   outline: 0;
-  padding: 0.5em 1em;
-  border-radius: 1.3em;
+  padding:0;
+  border-radius: 0.5em;
   /* background: linear-gradient(145deg, var(--color-gradient-start), var(--color-gradient-stop)); */
   box-shadow: 0.4em 0.4em 0.8em var(--color-outset-start), -0.4em -0.4em 0.8em var(--color-outset-stop), inset 0.2em 0.2em 0.4em var(--color-inset-start), inset -0.2em -0.2em 0.4em var(--color-inset-stop);
   transition: --color-gradient-stop 0.4s, --color-gradient-start 0.4s, --color-outset-start 0.8s, --color-outset-stop 0.8s, --color-inset-start 0.8s, --color-inset-stop 0.8s, color 1s;

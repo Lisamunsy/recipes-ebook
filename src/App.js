@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Home reg='true' logoui='false'/>} />
             <Route path="/signin" element={<Home reg='false' logoui='false'/>} />
             <Route path="/personalpage" element={<PersonalPage reg='true' logoui='true' page='liste'  />} />
-            <Route path="/newrecipe" element={<RecetteForm reg='true' logoui='true' isUpdate='false'/>} />
+            <Route path="/newrecipe" element={<RecetteForm reg='true' logoui='true' update='false'/>} />
             <Route path="/recipe/update/:id" element={<RecetteForm reg='true' logoui='true' update='true'/>} />
             <Route  path="/recipe/:id" element = {<PersonalPage reg='true' logoui='true' page='show' />}/>
             </Routes>

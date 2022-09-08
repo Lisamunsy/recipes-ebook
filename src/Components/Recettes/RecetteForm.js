@@ -43,47 +43,70 @@ export function RecetteForm(props){
             });
     }
 
-    const [recette, setRecette] =useState([]);
+    const [recette, setRecette] =useState([]
+       
+    );
     useEffect(()=> {
-        fetchRecipe(id);
+        if (id !== undefined) {
+            fetchRecipe(id);
+        } 
+        // else{
+        //     console.log('Petit problème')
+        //     setRecette({
+        //         titre:'',
+        //         description:'',
+        //         imgUrl:'',
+        //         categorie_id:''
+        //     })
+        // }
     }, [id]);
 
     function fetchRecipe(id) {
-
+        
+        
         axios.get(`http://127.0.0.1:8000/recettes/${id}`)
-          .then(
+        .then(
             (res) => {
-              setRecette(res.data)
-              console.log(res.data)
+            setRecette(res.data)
+            console.log(res.data)
             })
             .catch((err)=>{
                 console.log(err);
             });
+         
     }
 
     const handleInputChange= (e) => {
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+        // const target = e.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const champ = target.name;
     
-        setRecette( prevState =>(
+        // setRecette( prevRecette =>(
 
-            {
-            recette:{
-                ...prevState,
-              [name]: value
-            }
-            }
-        ));
+        //     {
+        //     recette:{
+        //         ...prevRecette.recette,
+        //       [champ]: value
+        //     }
+        //     }
+        // ))
+        const { id, value } = e.target;
+  setRecette((prevState) => ({
+    recette: {
+      ...prevState.recette,
+      [id]: value
+    }}
+  ));
+        console.log(recette);
     }
 
     const handleSubmit= (e) =>{
         e.preventDefault();
         if (props.update === 'false') {
-            axios.post('http://127.0.0.1:8000/recettes/', recette)
+            axios.post('http://127.0.0.1:8000/recettes/', JSON.stringify(recette) )
             .then(res=> console.log('Recette créée'+ res.data))
             .then(setReussite('true'))
-        } else {
+        } else if (props.update === 'true'){
             axios.put(`http://127.0.0.1:8000/recettes/${recette.id}`, recette)
             .then(res=> console.log('Recette modifiée'+ res.data))
             .then(setReussite('true'))
@@ -128,7 +151,7 @@ export function RecetteForm(props){
                                     </FormControl>
                                     <FormControl>
                                         <FormLabel>Category</FormLabel>
-                                        <Select placeholder='Select a category' name="categorie" onChange={handleInputChange}>
+                                        <Select placeholder='Select a category' name="categorie_id" onChange={handleInputChange}>
                                             {categories.map(cate =>
                                                 
                                                 <option key={cate.id} value={(cate.id)}>{cate.name}</option>

@@ -4,7 +4,7 @@ import {
     // Route, Routes,
     Link} from "react-router-dom";
 // import ShowRecette from "./ShowRecette";
-import { Wrap, WrapItem, Flex, Image, Heading, Button } from "@chakra-ui/react";
+import { Wrap, WrapItem, Flex, Image, Heading, Button, Box, LinkBox } from "@chakra-ui/react";
 
 function ListeRecetteFun(props) {
     const[recettes, setRecettes] =useState([]);
@@ -26,25 +26,30 @@ function ListeRecetteFun(props) {
 
         return(
             <div className="liste-container">
-                <Heading as='h1' size='2xl' color='orange.800' align='center' w="100%">
-                  {/* {this.state.isLogged.toString()} */}
-                  Welcome
-                </Heading> 
+                <Box className="heading-container" w="100%" display="flex" justifyContent="space-between" flexDir="column">
+                    <Heading as='h1' size='2xl' mb="1rem" color='orange.800' align='center' w="100%" >
+                    {/* {this.state.isLogged.toString()} */}
+                    Welcome
+                    </Heading> 
+                    <LinkBox> <Button colorScheme="green"> Add a recipe</Button> </LinkBox>
+                </Box>
 
             <Wrap p='5' justify='space-evenly' >
 
                 {recettes.map(item => (
-                    <WrapItem key={item.id} w='250px' m={4} py='2'  className="card-recette cardhover">
-                        <Flex flexDirection='column'  p='3' >
-                    
-                            <Image src={ item.imgUrl} h='150px' w='200px' borderRadius="15px"/>
-                            <Heading as='h3' size="md" color="gray.700" textTransform="capitalize">{item.titre}</Heading> 
-                             {/* <p><b>Catégorie</b>{item.categorie_id}</p> */}
-                            
-                            <Link to={`/recipe/${item.id}` }><Button colorScheme="orange">More Details</Button></Link>
-                        </Flex>
+                    <Link to={`/recipe/${item.id}` }key={item.id}>
+                        <WrapItem  w='200px' m={4} py={6}  className="card-recette cardhover">
+                            <Flex flexDirection='column' alignItems="center" h="100%" w="100%" justifyContent="space-evenly">
                         
-                    </WrapItem>
+                                <Image src={ item.imgUrl} h='100px' w='120px' borderRadius="15px"/>
+                                <Heading as='h3' size="sm" color="gray.700" textTransform="capitalize">{item.titre}</Heading> 
+                                {/* <p><b>Catégorie</b>{item.categorie_id}</p> */}
+                                
+                                {/* <Button colorScheme="orange">More Details</Button> */}
+                            </Flex>
+                        </WrapItem>
+                    </Link>
+
                 ))}
             </Wrap>
             
